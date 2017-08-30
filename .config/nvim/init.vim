@@ -10,8 +10,11 @@ Plug 'rakr/vim-one'
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'reedes/vim-colors-pencil' 
 
+" Ale: Asynchronous linter
+Plug 'w0rp/ale'
+
 " Reason: Facebook Reason Support
-Plug 'reasonml/vim-reason-loader'
+" Plug 'reasonml/vim-reason-loader'
 
 " Git Wrapper: Shortcus to git commands
 Plug 'tpope/vim-fugitive'
@@ -21,13 +24,13 @@ Plug 'godlygeek/tabular' " requried by bim-markdown
 Plug 'gabrielelana/vim-markdown'
 
 " Syntastic: showing syntax errors
-Plug 'scrooloose/syntastic'
+" Plug 'scrooloose/syntastic'
 
 " Pairtools: auto complete brace
 Plug 'MartinLafreniere/vim-PairTools'
 
 " COOL: COOL syntax highlighter
-Plug 'vim-scripts/cool.vim'
+" Plug 'vim-scripts/cool.vim'
 
 " Vim Pencil: Writing enhancements
 Plug 'reedes/vim-pencil'
@@ -53,7 +56,7 @@ colorscheme tender
 set t_ut=
 
 set laststatus=2    " Otherwise lightline shows blank
-let g:lightline = { 'colorscheme': 'wombat' }
+let g:lightline = { 'colorscheme': 'tender' }
 set number          " show line number
 set cursorline      " highlight the line that the cursor is at
 set wildmenu        " command menu
@@ -75,7 +78,6 @@ set autoread        " Set to auto read when a file is changed outside
 
 " Plugins
 filetype plugin on
-
 
 " Config cpp Mode
 autocmd FileType cpp setlocal ts=4 sw=4 expandtab
@@ -109,10 +111,16 @@ let g:pencil#conceallevel=0
 set nofoldenable
 
 
+" Config ALE
+let g:ale_cpp_clang_options = '-std=c++11 -Wall'
+let g:ale_cpp_clangcheck_options = '-extra-arg="-std=c++11"'
+
+" Config Deoplete
+let g:deoplete#enable_at_startup = 1
+
+
 " Config Merlin
 set rtp+=/home/henry/.opam/4.02.3/share/merlin/vim
-
-
 
 
 
@@ -149,8 +157,3 @@ for tool in s:opam_packages
   endif
 endfor
 " ## end of OPAM user-setup addition for vim / base ## keep this line
-
-
-let g:syntastic_ocaml_checkers = ['merlin']
-let g:syntastic_reason_checkers = ['merlin']
-
