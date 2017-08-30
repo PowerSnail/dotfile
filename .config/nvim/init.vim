@@ -44,6 +44,7 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 
 " Deoplete: Asynchronous keyword completion
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'zchee/deoplete-clang'
 
 call plug#end()
 
@@ -117,6 +118,8 @@ let g:ale_cpp_clangcheck_options = '-extra-arg="-std=c++11"'
 
 " Config Deoplete
 let g:deoplete#enable_at_startup = 1
+let g:deoplete#sources#clang#libclang_path = '/usr/lib/llvm-3.8/lib/libclang.so.1'
+let g:deoplete#sources#clang#clang_header = '/usr/lib/clang'
 
 
 " Config Merlin
