@@ -46,6 +46,9 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'zchee/deoplete-clang'
 
+" Vim Multiple Cursors: Multiple cursors like Sublime Text
+Plug 'wreed4/vim-multiple-cursors'
+
 call plug#end()
 
 
