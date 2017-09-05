@@ -49,6 +49,9 @@ Plug 'zchee/deoplete-clang'
 " Vim Multiple Cursors: Multiple cursors like Sublime Text
 Plug 'wreed4/vim-multiple-cursors'
 
+" Vim Clang Format: Format by `clang-format`
+Plug 'rhysd/vim-clang-format'
+
 call plug#end()
 
 
@@ -58,6 +61,9 @@ syntax on
 set background=dark
 colorscheme tender 
 set t_ut=
+
+" Highlight 81st column and onwards 
+let &colorcolumn=join(range(81,999),",")
 
 set laststatus=2    " Otherwise lightline shows blank
 let g:lightline = { 'colorscheme': 'tender' }
@@ -84,7 +90,8 @@ set autoread        " Set to auto read when a file is changed outside
 filetype plugin on
 
 " Config cpp Mode
-autocmd FileType cpp setlocal ts=4 sw=4 expandtab
+autocmd FileType cpp setlocal ts=2 sw=2 expandtab
+autocmd FileType cpp let g:clang_format#code_style = 'google'
 
 " Config Reason Mode
 " keybindings
