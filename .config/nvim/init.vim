@@ -61,6 +61,7 @@ syntax on
 set background=dark
 colorscheme tender 
 set t_ut=
+set mouse=a
 
 " Highlight 81st column and onwards 
 let &colorcolumn=join(range(81,999),",")
@@ -89,9 +90,18 @@ set autoread        " Set to auto read when a file is changed outside
 " Plugins
 filetype plugin on
 
+" NERDTree Config
+nnoremap <Leader>f :NERDTreeToggle<Enter>
+
 " Config cpp Mode
 autocmd FileType cpp setlocal ts=2 sw=2 expandtab
 autocmd FileType cpp let g:clang_format#code_style = 'google'
+
+
+" Config ruby Mode
+autocmd FileType ruby setlocal ts=2 sw=2 expandtab
+autocmd FileType eruby setlocal ts=2 sw=2 expandtab
+
 
 " Config Reason Mode
 " keybindings
