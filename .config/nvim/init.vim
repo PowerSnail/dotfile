@@ -13,8 +13,14 @@ Plug 'reedes/vim-colors-pencil'
 " Ale: Asynchronous linter
 Plug 'w0rp/ale'
 
+" AVR Assembly: Assembly syntax highlight
+Plug 'VelkyVenik/vim-avr'
+
 " Reason: Facebook Reason Support
 " Plug 'reasonml/vim-reason-loader'
+
+" Tmuxline: generate tmux theme to match lightline
+Plug 'edkolev/tmuxline.vim'
 
 " Git Wrapper: Shortcus to git commands
 Plug 'tpope/vim-fugitive'
@@ -25,6 +31,12 @@ Plug 'gabrielelana/vim-markdown'
 
 " Syntastic: showing syntax errors
 " Plug 'scrooloose/syntastic'
+
+" Tmux Conf: syntax for tmux configuration
+Plug 'keith/tmux.vim'
+
+" Java Complete: java compete 2
+Plug 'artur-shaik/vim-javacomplete2'
 
 " Pairtools: auto complete brace
 Plug 'MartinLafreniere/vim-PairTools'
@@ -58,8 +70,8 @@ call plug#end()
 " Appearances
 syntax on 
 
-set background=dark
-colorscheme tender 
+set background=light
+colorscheme PaperColor
 set t_ut=
 set mouse=a
 
@@ -67,7 +79,7 @@ set mouse=a
 let &colorcolumn=join(range(81,999),",")
 
 set laststatus=2    " Otherwise lightline shows blank
-let g:lightline = { 'colorscheme': 'tender' }
+let g:lightline = { 'colorscheme': 'PaperColor' }
 set number          " show line number
 set cursorline      " highlight the line that the cursor is at
 set wildmenu        " command menu
@@ -96,6 +108,26 @@ nnoremap <Leader>f :NERDTreeToggle<Enter>
 " Config cpp Mode
 autocmd FileType cpp setlocal ts=2 sw=2 expandtab
 autocmd FileType cpp let g:clang_format#code_style = 'google'
+
+autocmd FileType avr setlocal ts=4 sw=4 expandtab
+
+" Config java Mode
+autocmd FileType java setlocal ts=2 sw=2 expandtab
+autocmd FileType java let g:pairtools_java_pairclamp = 1
+autocmd FileType java let g:pairtools_java_jigsaw = 1
+autocmd FileType java let g:pairtools_java_autoclose = 1
+autocmd FileType java let g:pairtools_java_autoclose = 1
+autocmd FileType java let g:pairtools_java_closepairs = "(:),[:],{:}" . ',":"'
+autocmd FileType java let g:pairtools_java_smartclose = 1
+autocmd FileType java let g:pairtools_java_smartcloserules = '\w,(,&,\*'
+autocmd FileType java let g:pairtools_java_antimagic  = 1
+autocmd FileType java let g:pairtools_java_antimagicfield  = "Comment,String,Special"
+autocmd FileType java let g:pairtools_java_pcexpander = 1
+autocmd FileType java let g:pairtools_java_pceraser   = 1
+autocmd FileType java let g:pairtools_java_tagwrenchhook = 'tagwrench#BuiltinNoHook'
+autocmd FileType java let g:pairtools_java_twexpander = 0
+autocmd FileType java let g:pairtools_java_tweraser   = 0
+autocmd FileType java let g:pairtools_java_apostrophe = 0
 
 
 " Config ruby Mode
@@ -138,8 +170,8 @@ let g:ale_cpp_clangcheck_options = '-extra-arg="-std=c++11"'
 
 " Config Deoplete
 let g:deoplete#enable_at_startup = 1
-let g:deoplete#sources#clang#libclang_path = '/usr/lib/llvm-3.8/lib/libclang.so.1'
-let g:deoplete#sources#clang#clang_header = '/usr/lib/clang'
+let g:deoplete#sources#clang#libclang_path = '/usr/lib64/libclang.so'
+let g:deoplete#sources#clang#clang_header = '/usr/lib64/clang'
 
 
 " Config Merlin
