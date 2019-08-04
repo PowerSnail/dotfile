@@ -11,7 +11,6 @@ Plug 'NLKNguyen/papercolor-theme'
 Plug 'reedes/vim-colors-pencil' 
 Plug 'junegunn/vim-easy-align'
 
-
 " Ale: Asynchronous linter
 Plug 'w0rp/ale'
 
@@ -72,13 +71,13 @@ call plug#end()
 " Appearances
 syntax on 
 
-set background=light
-colorscheme PaperColor
+set background=dark
+colorscheme one
 set t_ut=
 set mouse=a
 
 " Highlight 81st column and onwards 
-let &colorcolumn=join(range(81,999),",")
+" let &colorcolumn=join(range(81,999),",")
 
 set laststatus=2    " Otherwise lightline shows blank
 let g:lightline = { 'colorscheme': 'PaperColor' }
@@ -110,6 +109,12 @@ nnoremap <Leader>f :NERDTreeToggle<Enter>
 " Config cpp Mode
 autocmd FileType cpp setlocal ts=2 sw=2 expandtab
 autocmd FileType cpp let g:clang_format#code_style = 'google'
+autocmd FileType cpp let g:ale_cpp_clang_options = '-std=c++11 -Wall'
+autocmd FileType cpp let g:ale_cpp_clangcheck_options = '-extra-arg="-std=c++11"'
+autocmd FileType cpp let g:deoplete#enable_at_startup = 1
+autocmd FileType cpp let g:deoplete#sources#clang#libclang_path = '/usr/lib64/libclang.so'
+autocmd FileType cpp let g:deoplete#sources#clang#clang_header = '/usr/lib64/clang'
+
 
 " Config lex Mode
 autocmd FileType lex setlocal ts=2 sw=2 expandtab
@@ -145,22 +150,14 @@ autocmd FileType ruby setlocal ts=2 sw=2 expandtab
 autocmd FileType eruby setlocal ts=2 sw=2 expandtab
 
 " Config Markdown Mode
-let g:vim_markdown_toc_autofit = 1 " shrink if possible
-let g:vim_markdown_fenced_languages = ['c++=cpp', 'viml=vim', 'bash=sh', 'ini=dosini', 'reason=re']
-let g:vim_markdown_math = 1
-let g:vim_markdown_frontmatter=1
-let g:pencil#conceallevel=0 
-set nofoldenable
+autocmd FileType markdown colorscheme pencil
+autocmd FileType markdown let g:vim_markdown_toc_autofit = 1 " shrink if possible
+autocmd FileType markdown let g:vim_markdown_fenced_languages = ['c++=cpp', 'viml=vim', 'bash=sh', 'ini=dosini', 'reason=re']
+autocmd FileType markdown let g:vim_markdown_math = 1
+autocmd FileType markdown let g:vim_markdown_frontmatter=1
+autocmd FileType markdown let g:pencil#conceallevel=0 
+autocmd FileType markdown set nofoldenable
 
-
-" Config ALE
-let g:ale_cpp_clang_options = '-std=c++11 -Wall'
-let g:ale_cpp_clangcheck_options = '-extra-arg="-std=c++11"'
-
-" Config Deoplete
-let g:deoplete#enable_at_startup = 1
-let g:deoplete#sources#clang#libclang_path = '/usr/lib64/libclang.so'
-let g:deoplete#sources#clang#clang_header = '/usr/lib64/clang'
 
 
 
