@@ -157,7 +157,3 @@ autocmd FileType markdown let g:vim_markdown_math = 1
 autocmd FileType markdown let g:vim_markdown_frontmatter=1
 autocmd FileType markdown let g:pencil#conceallevel=0 
 autocmd FileType markdown set nofoldenable
-
-
-
-
