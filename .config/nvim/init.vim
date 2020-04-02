@@ -80,7 +80,7 @@ set mouse=a
 " let &colorcolumn=join(range(81,999),",")
 
 set laststatus=2    " Otherwise lightline shows blank
-let g:lightline = { 'colorscheme': 'PaperColor' }
+let g:lightline = { 'colorscheme': 'one' }
 set number          " show line number
 set cursorline      " highlight the line that the cursor is at
 set wildmenu        " command menu
