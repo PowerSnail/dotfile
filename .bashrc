@@ -14,7 +14,6 @@ export PATH
 
 # Load my env.sh
 . $HOME/dotfile/env.sh
-export PATH=$(echo $PATH | rm_duplicate_env_val)
 
 # Uncomment the following line if you don't like systemctl's auto-paging feature:
 export SYSTEMD_PAGER=
