@@ -1,22 +1,13 @@
 # .bash_profile
+export BASH_PROFILE_LOADED=1
 
-# Get the aliases and functions
-if [ -f ~/.bashrc ]; then
-	. ~/.bashrc
+# Load profile
+if [ "${PROFILE_LOADED}" != "1" ] && [ -f "$HOME/.profile" ]; then
+  . "$HOME/.profile"
 fi
 
-# User specific environment and startup programs
+# Get the aliases and functions
+if [ "${BASHRC_LOADED}" != "1" ] && [ -f "$HOME/.bashrc" ]; then
+	. "$HOME/.bashrc"
+fi
 
-# Input method for 
-export GTK_IM_MODULE=fcitx
-export QT_IM_MODULE=fcitx
-export QT4_IM_MODULE=fcitx
-export XMODIFIERS=@im=fcitx
-export ECORE_IMF_MODULE=xim
-
-export ELECTRON_TRASH=gio
-export PATH="$HOME/.cargo/bin:$PATH"
-export PATH="$HOME/.poetry/bin:$PATH"
-export PATH="$HOME/.pyenv/bin:$PATH"
-export ANDROID_HOME="$HOME/.local/share/Android/Sdk"
-# export WINEDEBUG="-all"
