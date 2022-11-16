@@ -12,8 +12,10 @@ if type -q banner_message
 end
 
 
+if type -q conda
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 eval /home/henry/.pyenv/versions/miniconda3-latest/bin/conda "shell.fish" "hook" $argv | source
 # <<< conda initialize <<<
+end
 
